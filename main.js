@@ -1,48 +1,50 @@
-let nombreIngresado;
-let apellidoIngresado;
-let emailIngresado;
-let edadIngresada;
-let monto;
-let interesAnual;
-let cantidadAnios;
-let ganancias;
-let montoTotal;
+function DatosDelUsuario(){
 
-alert ("Bienvenidos a InverOne")
+    alert ("Bienvenidos a Bebradas")
 
-nombreIngresado = prompt ("Ingrese su Nombre");
+    let Nombre = prompt ("Ingrese su Nombre");
+    console.log ("Su Nombre es:" + " " +Nombre)
 
-alert ("¡ Bienvenido al Centro de Inversiones InverOne" + " " + nombreIngresado + "!")
-console.log ("Su Nombre es:" + " " +nombreIngresado)
+    let Apellido = prompt ("Ingrese su Apellido")
+    console.log ("Su Apellido es:" + " " +Apellido)
 
-apellidoIngresado = prompt ("Ingrese su Apellido")
-console.log ("Su Apellido es:" + " " +apellidoIngresado)
+    let DocumentoId = prompt ("Ingrese su numero de Documento")
+    console.log ("Su Numero de Documento es:" + " " +DocumentoId)
 
-
-emailIngresado = prompt ("Ingrese su Email")
-console.log ("Su Email es:" + " " +emailIngresado)
-
-edadIngresada = parseInt(prompt("Ingrese su edad"))
-console.log (edadIngresada >18)
-
-if (edadIngresada >=18) {
-    alert ("Usted es mayor de edad y responsable de cualquier accion a la que se comprometa")
-
-    monto = parseInt(prompt("Ingrese monto de la inversion"))
-
-    interesAnual = parseInt(prompt("Ingrese interes Anual de la Inversión"))
-
-    cantidadAnios = parseInt(prompt("Ingrese cantidad de años a invertir"))
-
-    montoTotal = monto - monto
-
-    for (let i = 0; i < cantidadAnios; i++) {
-    ganancias = monto * interesAnual / 100
-    montoTotal = monto + montoTotal + ganancias
-    console.log("Total: ", montoTotal)
-    }
-    alert ("Te esperamos en nuestras Sucursales para concretar ... Saludos")
-
-} else {
-    alert ("Usted es menor de Edad, por lo cual no podremos llegar a un acuerdo")
+    alert ("¡ Bienvenido a Bebradas" + " " + Nombre + "!")
 }
+
+DatosDelUsuario()
+
+function EleccionDeProductos(){
+    let SumaTotal = 0;
+    let SeguirComprando = true
+    while (SeguirComprando) {
+        let ProductoSeleccionado = parseInt(prompt(`Seleccione un producto \n 1: Cerveza,\n 2: Vino,\n 3: Vodka,\n 4: Whiskey`));
+        switch (ProductoSeleccionado){
+            case 1:
+                SumaTotal = SumaTotal+500
+            break;
+            case 2:
+                SumaTotal = SumaTotal+1000
+            break;
+            case 3:
+                SumaTotal = SumaTotal+2000
+            break;
+            case 4:
+                SumaTotal = SumaTotal+8000
+            break;
+            default:
+                alert(`Ha ingresado un producto inexistente`)
+            break;
+        }
+        alert(`Total :`+ SumaTotal)
+        let SeleccionSeguirComprando = parseInt(prompt(`Quisiera añadir mas artiulos al carrito de compras ? \n1: Si \n 2: No`));
+        if(SeleccionSeguirComprando !== 1){
+            SeguirComprando = false;
+        }
+    }
+    alert(`Monto Total a pagar es de :` + SumaTotal)
+}
+
+EleccionDeProductos()
